@@ -1,7 +1,46 @@
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
+import Header from './Header';
+import AddContact from './AddContact';
+import ContactList from './ContactList';
+import ContactDetail from './ContactDetail';
+import { ContactsCrudContextProvider } from '../context/ContactsCrudContext';
 
 function App() {
-  return <div className="App">Hello World</div>;
+  // const addContactHandler = (contact) => {
+  //   const id = uuidv4();
+  //   const newContact = { id, ...contact };
+  //   setContacts([...contacts, newContact]);
+  //   console.log(newContact);
+  // };
+
+  // const removeContactHandler = (id) => {
+  //   const newContacts = contacts.filter((contact) => {
+  //     return contact.id !== id;
+  //   });
+
+  //   setContacts(newContacts);
+  // };
+
+  return (
+    <div className="ui container">
+      <Router>
+        <Header />
+        <ContactsCrudContextProvider>
+          <Routes>
+            <Route path="/" element={<ContactList />} />
+            {/* <Route
+              path="/add"
+              element={<AddContact addContactHandler={addContactHandler} />}
+            />
+            <Route path="/contact/:id" element={<ContactDetail />} /> */}
+          </Routes>
+        </ContactsCrudContextProvider>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
