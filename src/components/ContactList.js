@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useContactsCrud } from '../context/ContactsCrudContext';
 import ContactCard from './ContactCard';
 
@@ -15,8 +16,13 @@ const ContactList = () => {
   });
 
   return (
-    <div className="main">
-      <h2>Contact List</h2>
+    <div className="ui main">
+      <h2>
+        Contact List
+        <Link to="/add">
+          <button className="ui right floated button blue">Add Contact</button>
+        </Link>
+      </h2>
       <div
         className="ui very relaxed list "
         style={{ width: '30em', marginTop: '2rem' }}
