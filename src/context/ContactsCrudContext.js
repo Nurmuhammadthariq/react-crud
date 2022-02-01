@@ -15,9 +15,18 @@ export function ContactsCrudContextProvider({ children }) {
     }
   };
 
+  const addContactHandler = async (contact) => {
+    const id = uuidv4();
+    const request = { id, ...contact };
+    console.log(request);
+    const response = await api.post('/contacts', request);
+    setContacts([...contacts, response.data]);
+  };
+
   const value = {
     contacts,
     getAllContacts,
+    addContactHandler,
   };
 
   return (
