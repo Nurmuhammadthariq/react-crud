@@ -23,10 +23,20 @@ export function ContactsCrudContextProvider({ children }) {
     setContacts([...contacts, response.data]);
   };
 
+  const removeContactHandler = async (id) => {
+    await api.delete(`/contacts/${id}`);
+    const newContact = contacts.filter((contact) => {
+      return contact.id !== id;
+    });
+
+    setContacts(newContact);
+  };
+
   const value = {
     contacts,
     getAllContacts,
     addContactHandler,
+    removeContactHandler,
   };
 
   return (
