@@ -8,6 +8,16 @@
   padding: 10px
 }
 
+.ui.search .input {
+  width: 100%;
+}
+.ui.search .prompt {
+  border-radius: 0px;
+}
+.ui.input > input {
+  border: 1.5px solid rgba(34, 36, 38, 0.15);
+}
+
 .field {
   width: 30em;
 }
