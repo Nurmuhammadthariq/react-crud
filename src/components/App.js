@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import Header from './Header';
 import AddContact from './AddContact';
@@ -9,13 +8,6 @@ import ContactDetail from './ContactDetail';
 import { ContactsCrudContextProvider } from '../context/ContactsCrudContext';
 
 function App() {
-  // const addContactHandler = (contact) => {
-  //   const id = uuidv4();
-  //   const newContact = { id, ...contact };
-  //   setContacts([...contacts, newContact]);
-  //   console.log(newContact);
-  // };
-
   // const removeContactHandler = (id) => {
   //   const newContacts = contacts.filter((contact) => {
   //     return contact.id !== id;
@@ -31,11 +23,8 @@ function App() {
         <ContactsCrudContextProvider>
           <Routes>
             <Route path="/" element={<ContactList />} />
-            {/* <Route
-              path="/add"
-              element={<AddContact addContactHandler={addContactHandler} />}
-            />
-            <Route path="/contact/:id" element={<ContactDetail />} /> */}
+            <Route path="add" element={<AddContact />} />
+            <Route path="/contact/:id" element={<ContactDetail />} />
           </Routes>
         </ContactsCrudContextProvider>
       </Router>
