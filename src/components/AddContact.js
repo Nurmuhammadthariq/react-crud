@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useContactsCrud } from '../context/ContactsCrudContext';
 
 const AddContact = () => {
@@ -22,7 +22,12 @@ const AddContact = () => {
 
   return (
     <div className="ui main">
-      <h2>Add Contact</h2>
+      <h2>
+        Add Contact
+        <Link to="/">
+          <button className="ui right floated button blue">Back</button>
+        </Link>
+      </h2>
       <form className="ui form" onSubmit={addContact}>
         <div className="field">
           <label>Name</label>
