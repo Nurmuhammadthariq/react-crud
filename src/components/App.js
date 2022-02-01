@@ -6,6 +6,7 @@ import AddContact from './AddContact';
 import ContactList from './ContactList';
 import ContactDetail from './ContactDetail';
 import { ContactsCrudContextProvider } from '../context/ContactsCrudContext';
+import EditContact from './EditContact';
 
 function App() {
   // const removeContactHandler = (id) => {
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ContactList />} />
             <Route path="add" element={<AddContact />} />
+            <Route path="/edit" element={<EditContact />} />
             <Route path="/contact/:id" element={<ContactDetail />} />
           </Routes>
         </ContactsCrudContextProvider>
