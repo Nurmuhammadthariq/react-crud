@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useContactsCrud } from '../context/ContactsCrudContext';
 import ContactCard from './ContactCard';
 
@@ -7,7 +7,8 @@ const ContactList = () => {
 
   useEffect(() => {
     getAllContacts();
-  }, [contacts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderContactList = contacts.map((contact) => {
     return <ContactCard contact={contact} key={contact.id} />;
